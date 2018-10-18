@@ -13,9 +13,9 @@ public class Login {
     @FindBy(id = "Password") WebElement PasswordLocator;  
     @FindBy(xpath = "//button[@type='submit'][contains(.,'Login')]") WebElement LoginLocator; 
     @FindBy(xpath="//span[@class='walkme-action-destroy-1 wm-close-link']") WebElement WelcomeClose;
-    @FindBy(xpath = "//span[@class='aciTreeText'][contains(.,'GR All Test - RB')]") WebElement GRAllTestMenu;
+	@FindBy(xpath = "//span[text()='GR All Test - RB']") WebElement grAllTestRB;
     @FindBy(xpath = "//a[@role='tab'][contains(.,'Text Box and People Picker')]") WebElement TextBoxANDPeoplePicker;
-    @FindBy(xpath = "//a[contains(@id,'btncreatenewitem163')]") WebElement createItem;
+	@FindBy(xpath = "//a[@id='btncreatenewitem163']") WebElement createNewButton;
  
   
 	public Login(WebDriver driver){
@@ -23,21 +23,22 @@ public class Login {
         PageFactory.initElements(driver, this);
     }
 	
-   public void login(String un, String pw){
+   public void login(String un, String pw) throws InterruptedException{
 	   
 	    FunctionLibrary.enterText(UserNameLocator, un);
 	    FunctionLibrary.enterText(PasswordLocator, pw);
 	    FunctionLibrary.click(LoginLocator);  	
 	    driver.manage().window().maximize();
-	    FunctionLibrary.waitForElement(GRAllTestMenu);
-	    GRAllTestMenu.click();
+	    Thread.sleep(30000);
+	    ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", grAllTestRB);
+	    FunctionLibrary.waitForElement(grAllTestRB);
+	    grAllTestRB.click();
 	    FunctionLibrary.waitForElement(TextBoxANDPeoplePicker);
 	    TextBoxANDPeoplePicker.click();
-	   // FunctionLibrary factory =new FunctionLibrary();
-	    //factory.explicitWait(3600000);
-	    System.out.println("after one minute");	    
-	    JavascriptExecutor js = (JavascriptExecutor)driver;	
-	    js.executeScript("arguments[0].click();", createItem);
-	  
+	    System.out.println("after one minute");	
+	    FunctionLibrary.waitForElement(createNewButton);
+	    createNewButton.click(); 
+	    Thread.sleep(30000);
+	    System.out.println("Waiting..................one minute");
     }
 }
