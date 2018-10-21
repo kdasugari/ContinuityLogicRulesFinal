@@ -1,7 +1,7 @@
 <suite name="GR All Test - RB" verbose="1">
  <test name="login">
  <classes>
- <class name="appTests.TextBoxandRadioButtonTest" />
+ <class name="appTests.TextBoxAndPeoplePickerTest" />
  </classes>
  </test>
 </suite>

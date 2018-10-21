@@ -5,7 +5,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,7 +23,11 @@ public class FunctionLibrary {
         System.out.println("launching Chrome browser");
     	String driverPath = CommonUtility.getProperty("ChromeDriverPath");
     	System.out.println("URL....."+baseUrl);
+//    	String path = System.getProperty("user.dir");   
+//    	E:\Project\Git\ContinuityLogicRulesFinal
+//    	String driverPath = path + "\\driverfolder\\chromedriver.exe"; 
     	System.setProperty("webdriver.chrome.driver", driverPath);
+    	
     	driver = new ChromeDriver();
     	//driver = new FirefoxDriver(); 
     	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -61,7 +64,7 @@ public class FunctionLibrary {
     
     
     public static void waitForElement(WebElement obj){
- 		WebDriverWait wait = new WebDriverWait(driver, 120);
+ 		WebDriverWait wait = new WebDriverWait(driver, 200);
  		wait.until(ExpectedConditions.visibilityOf(obj));
     }
     
