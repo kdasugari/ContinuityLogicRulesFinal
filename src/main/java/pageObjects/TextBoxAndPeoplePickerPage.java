@@ -1,24 +1,25 @@
 package pageObjects;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 import functionLib.FunctionLibrary;
 
 public class TextBoxAndPeoplePickerPage {
 	public WebDriver driver;
-	@FindBy(xpath = "//span[text()='GR All Test - RB']")
-	WebElement grAllTestRB;
-    @FindBy(xpath = "//a[@role='tab'][contains(.,'Text Box and People Picker')]")
-	WebElement TextBoxANDPeoplePicker;
-	@FindBy(xpath = "//a[@id='btncreatenewitem163']")
-	WebElement createNewButton;
+	@FindBy(xpath = "//span[text()='GR All Test - RB']") WebElement grAllTestRB;
+    @FindBy(xpath = "//a[@role='tab'][contains(.,'Text Box and People Picker')]") WebElement TextBoxANDPeoplePicker;
+	@FindBy(xpath = "//a[@id='btncreatenewitem163']") WebElement createNewButton;
 	@FindBy(xpath = "(//input[contains(@value,'NO')])[1]") WebElement noRadiobuttonLocator;
 	@FindBy(xpath = "(//button[@type='button'][contains(.,'Update')])[2]") WebElement updateEle;
 	//@FindBy(xpath = "(//span[@class='required'][contains(.,'*')])[14]") WebElement astricEle;
-	//	String  astricxpath = "(//span[@class='required'][contains(.,'*')])[14]";
+	//String  astricxpath = "(//span[@class='required'][contains(.,'*')])[14]";
 	@FindBy(xpath = "(//input[contains(@value,'NEITHER')])[1]") WebElement neitherRadiobuttonLocator;
 	//	@FindBy(xpath = "//label[text()='Radio Button 1']//..//input[@value='YES']") WebElement yesRadiobuttonLocator;
 	@FindBy(xpath = "//a[text()='Text Box and People Picker']") WebElement textBoxPicker;
@@ -27,15 +28,23 @@ public class TextBoxAndPeoplePickerPage {
 	//span[@class='aciTreeText'][contains(.,'GR All Test - RB')]
 	//@FindBy(xpath = "//span[@class='aciTreeText'][contains(.,'GR All Test - RB')]")
 	@FindBy(xpath = "//*[@id='formentrycontainer163_ENTITY_0']//following-sibling::button[@class='btn btn-primary updateButton']") WebElement updateButton;
-	//	@FindBy(xpath = "//label[text()='Radio Button 1']//..//input[@value='YES']") WebElement yesRadiobuttonLocator;
+	//@FindBy(xpath = "//label[text()='Radio Button 1']//..//input[@value='YES']") WebElement yesRadiobuttonLocator;
 	@FindBy(xpath = "(//label[text()='Radio Button 1']//..//input[@value='YES']//..//..)[1]") WebElement yesRadiobuttonLocator;
 	@FindBy(xpath = "//div[@class='jarviswidget scroller-anchor']//..//h2[@title=' Radio Button - Text Box']") WebElement radioButtonPage;
-
-	public String backBtn   		= "document.getElementsByClassName('btn btn-default')[16].click()";
-	public String updateBtn 		= "$(\"button[class='btn btn-primary updateButton']\")[1].click()";
+	@FindBy(xpath = "//input[@id='Textbox11744']") WebElement textBoxIsRequired;
+	public @FindBy(xpath = "//input[@id='Textbox21747']") WebElement textBoxIsOptional;
+	public @FindBy(xpath = "//span[contains(text(), 'Text box 1')]/../../../../tbody//td/div[contains(text(), '%s')]") WebElement searchResult;
+	public @FindBy(xpath = "//h2[@title=' Radio Button - Text Box']/..//button[@class='btn btn-primary updateButton']") WebElement updateBtn;  
+   	public String backBtn   		= "document.getElementsByClassName('btn btn-default')[16].click()";
+   	public @FindBy(xpath = "//h2[contains(text(), 'Radio Button - Text Box')]") WebElement radioButtoncheckboxPageTitle;
+	//public String updateBtn 		= "$(\"button[class='btn btn-primary updateButton']\")[1].click()";
 	public String radioBtn 			= "RadioButton11743";
+	public String radioBtn1 		= "RadioButton21746";
 	public String errMsgNameText1	= "Textbox11744-error";
-	public String textBox1 			= "Text box 1";
+	public String errMsgNameText2 	= "fllErrorSummaryContainer1630";
+	String SearchBox = "IsRequiredText_"+(new SimpleDateFormat("MMddhhmmss").format(new Date()));
+	
+	
 	
 
 //label[text() = 'Text box 5']//..//span[@style='display: none;'] -- check for * not required
@@ -74,5 +83,6 @@ public String asterixVisible(){
 //	return "return $x(\"//label[text() = '" + textBoxName + "']//..//span[@style='display: none;']\").length;";
 	return "return $(\"span[style='display: inline;']\").text()";
 }
+
 
 }
