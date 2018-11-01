@@ -1,5 +1,6 @@
 package appTests;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.io.File;
@@ -27,6 +28,7 @@ public class TextBoxAndPeoplePickerTest {
 public WebDriver driver;	   
 JavascriptExecutor js;  
 String tempStr = null;
+boolean flag = false;
 TextBoxAndPeoplePickerPage tPP;
 ExtentReports extent;
 ExtentTest logger;
@@ -66,15 +68,15 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 		logger = extent.startTest("TC-001:VerifyAstrickIcon", "VerifyAstrickIcon");
 		tempStr = tPP.selectRadioButton("YES" , tPP.radioBtn);
 		js.executeScript(tempStr);			
-
-		tempStr = tPP.asterixVisible();
-	    System.out.println("tempStr......................."+ tempStr);	
-	    String count= (String) js.executeScript(tempStr);	
-
-	    System.out.println("count......................."+ count);
-	    assertTrue(count.equals("*"));
-	   		
-	    logger.log(LogStatus.PASS, "Astrick symbol successfully verified");
+		tempStr = tPP.selectRadioButton("NO" , tPP.radioBtn);
+  		js.executeScript(tempStr);
+  		tempStr = tPP.selectRadioButton("YES" , tPP.radioBtn);
+  		js.executeScript(tempStr);
+  		
+  		flag = FunctionLibrary.isDisplayed(tPP.astrixVisible);
+  	    System.out.println("astrix......................."+ flag);
+	    assertEquals(flag, true);
+  	    logger.log(LogStatus.PASS, "Astrick symbol successfully verified");
 	}
 	
 	@Test (priority = 1)	
@@ -111,11 +113,10 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 		logger = extent.startTest("TC-004:VerifyAstrickSymbolforNO", "VerifyAstrickSymbolforNoRadioButton");
 		tempStr = tPP.selectRadioButton("NO" , tPP.radioBtn);
 		js.executeScript(tempStr);	
-		Thread.sleep(3000);
-		tempStr = tPP.asterixVisible();
-	    String count= (String) js.executeScript(tempStr);	
-	    System.out.println("count......................."+ count);	
-	    assertTrue(count.equals(""));
+		Thread.sleep(1000);
+		flag = FunctionLibrary.isDisplayed(tPP.astrixVisible);
+  	    System.out.println("astrix......................."+ flag);
+	    assertEquals(flag, false);
 	    logger.log(LogStatus.PASS, "AstrickSymbolforNoRadioButton successfully verified");
 
 	}
@@ -141,12 +142,9 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 		tempStr = tPP.selectRadioButton("NEITHER" , tPP.radioBtn);
 		js.executeScript(tempStr);			
 
-		tempStr = tPP.asterixVisible();
-
-	    String count= (String) js.executeScript(tempStr);	
-
-	    System.out.println("count......................."+ count);	
-	    assertTrue(count.equals(""));
+		flag = FunctionLibrary.isDisplayed(tPP.astrixVisible);
+  	    System.out.println("astrix......................."+ flag);
+	    assertEquals(flag, false);
 	    logger.log(LogStatus.PASS, "AstrickSymbolforNEITHERRadioButton successfully verified");
 	}
 	

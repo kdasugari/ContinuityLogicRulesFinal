@@ -37,6 +37,8 @@ public class TextBoxAndPeoplePickerPage {
 	public @FindBy(xpath = "//h2[@title=' Radio Button - Text Box']/..//button[@class='btn btn-primary updateButton']") WebElement updateBtn;  
    	public String backBtn   		= "document.getElementsByClassName('btn btn-default')[16].click()";
    	public @FindBy(xpath = "//h2[contains(text(), 'Radio Button - Text Box')]") WebElement radioButtoncheckboxPageTitle;
+   	public @FindBy(xpath = "//label[(text()='Text box 1')]//../span[@style='display: inline;']") WebElement astrixVisible;
+
 	//public String updateBtn 		= "$(\"button[class='btn btn-primary updateButton']\")[1].click()";
 	public String radioBtn 			= "RadioButton11743";
 	public String radioBtn1 		= "RadioButton21746";
