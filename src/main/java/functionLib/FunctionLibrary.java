@@ -1,10 +1,12 @@
 package functionLib;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,7 +23,10 @@ public class FunctionLibrary {
     public static WebDriver launchBrowser() throws IOException {
         String baseUrl = CommonUtility.getProperty("url");
         System.out.println("launching Chrome browser");
-    	String driverPath = CommonUtility.getProperty("ChromeDriverPath");
+    	String driverPath = CommonUtility.getProperty("ChromeDriverPath");    	
+    	File diverFile = new File(driverPath);
+    	driverPath  = diverFile.getAbsolutePath().replace("\\.","");
+    	System.out.println("driverPath :"+driverPath);
     	System.out.println("URL....."+baseUrl);
 //    	String path = System.getProperty("user.dir");   
 //    	E:\Project\Git\ContinuityLogicRulesFinal
