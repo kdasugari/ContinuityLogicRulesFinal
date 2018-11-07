@@ -30,7 +30,7 @@ public class FunctionLibrary {
     	
     	driver = new ChromeDriver();
     	//driver = new FirefoxDriver(); 
-    	driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     	driver.get(baseUrl);
     	driver.manage().window().maximize();
     	return driver;
