@@ -38,21 +38,26 @@ public class TextBoxAndPeoplePickerPage {
 	public @FindBy(xpath = "//input[@id='Textbox21747']") WebElement textBoxIsOptional;
 	public @FindBy(xpath = "//input[@id='Textbox31750']") WebElement textBoxIsVisible;
 	public @FindBy(xpath = "//input[@id='Textbox41753']") WebElement textBoxIsHidden;
-	public @FindBy(xpath = "//input[@id='Textbox51756']") WebElement textBoxIsReadonly;
+	//public @FindBy(xpath = "//input[@id='Textbox51756' and @disabled='disabled']") WebElement textBoxIsReadonly_disabled;
+	public @FindBy(xpath = "//input[@id='Textbox51756']") WebElement textBoxIsReadonly_enabled;
 	public @FindBy(xpath = "//input[@id='Textbox71765']") WebElement textBoxIsInvalid;
 	public @FindBy(xpath = "//input[@id='Textbox81768']") WebElement textBoxIsSetTo;
 	public @FindBy(xpath = "//button[@id='menuBuilderDelete']") WebElement deleteAlert;
 	public @FindBy(xpath = "//div[@id='hiddenDataLossAlerterRadioButton41752']") WebElement hideAlert;
 	public @FindBy(xpath = "//div[@id='hiddenInvalidAlerterRadioButton71764']") WebElement textInvalidError;
 	public @FindBy(xpath = "//span[contains(text(), 'Text box 1')]/../../../../tbody//td/div[contains(text(), '%s')]") WebElement isRequiredTextSearchResult;
-	public @FindBy(xpath = "//h2[@title=' Radio Button - Text Box']/..//button[@class='btn btn-primary updateButton']") WebElement updateBtn;  
+	public @FindBy(xpath = "//h2[contains(text(),'Text Box')]/..//button[@class='btn btn-primary updateButton']") WebElement updateBtn;
    	public @FindBy(xpath = "//h2[contains(text(), 'Radio Button - Text Box')]") WebElement radioButtoncheckboxPageTitle;
    	public @FindBy(xpath = "//label[(text()='Text box 1')]//../span[@style='display: inline;']") WebElement astrixVisibleIR;
    	public @FindBy(xpath = "//label[(text()='Text box 2')]//../span[@style='display: inline;']") WebElement astrixVisibleIO;
    	public @FindBy(xpath = "//div[@id='formadminGridDataTable1632582_filter']//input[@class='form-control input-sm']") WebElement textBoxSearch;
    	public @FindBy(xpath = "//table[@id='formadminGridDataTable1632582']/tbody/tr/td[2]/nav/nobr/button[2]") WebElement deleteButton;
    	public @FindBy(xpath = "//table[@id='formadminGridDataTable1632582']/tbody/tr/td[2]/nav/nobr/span/a") WebElement editButton;
-   	public @FindBy(xpath = "//div[@class='SmallBox animated fadeInRight fast']//span") WebElement invalidAlert;
+   	public @FindBy(xpath = "//div[@class='textoFull']/p") WebElement invalidAlert;
+   	public @FindBy(xpath = "//a[@title='Logout']") WebElement logoutButton;
+   	public @FindBy(xpath = "//button[@id='bot2-Msg1']") WebElement ConfirmLogout;
+ 
+   	public String Actual_text = "Textbox81768";
 	//public String updateBtn 		= "$(\"button[class='btn btn-primary updateButton']\")[1].click()";
    	public String backBtn   		= "document.getElementsByClassName('btn btn-default')[16].click()";
 	public String radioBtnIR 		= "RadioButton11743";
@@ -65,6 +70,7 @@ public class TextBoxAndPeoplePickerPage {
 	public String errMsgNameIRText1	= "Textbox11744-error";
 	public String errMsgNameText2 	= "fllErrorSummaryContainer1630";
 	public String errMsgNameIOText1	= "Textbox21747-error";
+	public String textBoxIsReadonly_disabled = "//input[@id='Textbox51756' and @disabled='disabled']";
 	
 	
 	public String IsrequiredText 	= "IsRequiredText_"+(new SimpleDateFormat("MMddhhmmss").format(new Date()));
@@ -92,6 +98,7 @@ public TextBoxAndPeoplePickerPage(WebDriver driver){
 
 
 public void navigateToTextBoxAndPeoplePickerPage() throws InterruptedException{
+	Thread.sleep(15000);
     ((JavascriptExecutor) driver).executeScript(
             "arguments[0].scrollIntoView();", grAllTestRB);
     FunctionLibrary.waitForElement(grAllTestRB);
@@ -120,9 +127,10 @@ public String asterixVisible(){
 public Boolean validateSearchTextBoxResult(String SearchResult, String TextBoxValue) throws InterruptedException{
 	textBoxSearch.clear();
 	textBoxSearch.sendKeys(TextBoxValue);
-	Thread.sleep(8000);
+	Thread.sleep(4000);
 
 	WebElement textValue = driver.findElement(By.xpath(String.format(SearchResult, TextBoxValue)));
+	Thread.sleep(5000);
 	flag = FunctionLibrary.isDisplayed(textValue);
 	
 	return flag;
