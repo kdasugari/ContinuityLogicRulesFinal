@@ -48,8 +48,8 @@ public void login()throws Exception
 	//Navigate to TextBoxAndPeoplePickerPage
 	//js = (JavascriptExecutor) driver;
 	lg.login(un, pw);
-	tPP = new TextBoxAndPeoplePickerPage(driver);
-	tPP.navigateToTextBoxAndPeoplePickerPage();
+	//tPP = new TextBoxAndPeoplePickerPage(driver);
+	//tPP.navigateToTextBoxAndPeoplePickerPage();
 	
 }
 
