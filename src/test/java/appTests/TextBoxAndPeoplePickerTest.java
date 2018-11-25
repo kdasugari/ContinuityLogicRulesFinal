@@ -24,6 +24,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import functionLib.CommonFunctions;
 import functionLib.FunctionLibrary;
 import functionLib.Login;
 
@@ -41,21 +42,28 @@ Login lg;
 @BeforeClass
 public void login()throws Exception
 {		
+	
 	driver = FunctionLibrary.launchBrowser();
 	String un = CommonUtility.getProperty("UserName");
 	String pw = CommonUtility.getProperty("Passoword");
 	Login lg= new Login(driver);
 	//Navigate to TextBoxAndPeoplePickerPage
-	//js = (JavascriptExecutor) driver;
+	js = (JavascriptExecutor) driver;
 	lg.login(un, pw);
+<<<<<<< HEAD
 	//tPP = new TextBoxAndPeoplePickerPage(driver);
 	//tPP.navigateToTextBoxAndPeoplePickerPage();
 	
+=======
+	tPP = new TextBoxAndPeoplePickerPage(driver);
+	tPP.navigateToTextBoxAndPeoplePickerPage();
+
+>>>>>>> 61e4c33bb97235f84394b135dab063954978fd49
 }
 
 @BeforeTest
 
-public void startReport(){ 
+public void startReport() throws Exception{ 
 		
 extent = new ExtentReports (".\\test-output\\STMExtentReport.html", true);
         
