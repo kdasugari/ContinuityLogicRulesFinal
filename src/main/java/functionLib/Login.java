@@ -27,7 +27,6 @@ public class Login {
     }
 	
    public void login(String un, String pw) throws InterruptedException,IOException{	
-	   
 	   String autoIt_Path = CommonUtility.getProperty("AutoItPath");    	
    	   File autoitFile = new File(autoIt_Path);
    	   autoIt_Path  = autoitFile.getAbsolutePath().replace("\\.","");
@@ -41,7 +40,7 @@ public class Login {
 	   cmd[1]=un;
 	   cmd[2]=pw;
 	   Runtime.getRuntime().exec(cmd);		   
-	    driver.manage().window().maximize();
-	    Thread.sleep(30000);	    
+	   driver.manage().window().maximize();
+	   Thread.sleep(30000);	    
     }
 }
