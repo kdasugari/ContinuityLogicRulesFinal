@@ -79,9 +79,13 @@ public class FunctionLibrary {
     }
       	
         
-   	public static void closeBrowser(){
-	driver.quit();
-	}
+    public static void closeBrowser(WebElement obj1, WebElement obj2) throws InterruptedException{
+    	obj1.click();
+    	Thread.sleep(3000);
+    	obj2.click();
+    	Thread.sleep(3000);
+        driver.quit();
+    	}
    	 public void explicitWait(int time)
    	 {
    		 try

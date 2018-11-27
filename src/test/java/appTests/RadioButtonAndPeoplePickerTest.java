@@ -8,6 +8,7 @@ import java.io.File;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -17,18 +18,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import pageObjects.TextBoxAndPeoplePickerPage;
-import Utilities.CommonUtility;
-
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import functionLib.CommonFunctions;
-import functionLib.FunctionLibrary;
-import functionLib.Login;
+import Utilities.CommonUtility;
+import functionLib.*;
+import pageObjects.TextBoxAndPeoplePickerPage;
 
-public class TextBoxAndPeoplePickerTest {
+public class RadioButtonAndPeoplePickerTest {
 public WebDriver driver;	   
 JavascriptExecutor js;  
 String tempStr = null;
@@ -36,34 +34,27 @@ boolean flag = false;
 TextBoxAndPeoplePickerPage tPP;
 ExtentReports extent;
 ExtentTest logger;
-Login lg;
 
 
 @BeforeClass
 public void login()throws Exception
 {		
-	
 	driver = FunctionLibrary.launchBrowser();
 	String un = CommonUtility.getProperty("UserName");
 	String pw = CommonUtility.getProperty("Passoword");
 	Login lg= new Login(driver);
+	//Navigate to dashboard
+//	lg.login(driver);
 	//Navigate to TextBoxAndPeoplePickerPage
 	js = (JavascriptExecutor) driver;
-	lg.login(un, pw);
-<<<<<<< HEAD
-	//tPP = new TextBoxAndPeoplePickerPage(driver);
-	//tPP.navigateToTextBoxAndPeoplePickerPage();
-	
-=======
 	tPP = new TextBoxAndPeoplePickerPage(driver);
 	tPP.navigateToTextBoxAndPeoplePickerPage();
-
->>>>>>> 61e4c33bb97235f84394b135dab063954978fd49
+	
 }
 
 @BeforeTest
 
-public void startReport() throws Exception{ 
+public void startReport(){ 
 		
 extent = new ExtentReports (".\\test-output\\STMExtentReport.html", true);
         
@@ -586,7 +577,7 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 		FunctionLibrary.waitForElement(tPP.deleteButton);
 		tPP.deleteButton.click();
 		tPP.deleteAlert.click();
-		Thread.sleep(3000);
+		//Thread.sleep(5000);
 		FunctionLibrary.waitForElement(tPP.createNewButton);
 	    tPP.createNewButton.click();
 	    logger.log(LogStatus.PASS, "IsRequired Update Button with NO successfully verified");
@@ -615,7 +606,7 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 		tPP.deleteButton.click();
 				
 		tPP.deleteAlert.click();
-	    Thread.sleep(3000);
+	//	Thread.sleep(5000);
 		FunctionLibrary.waitForElement(tPP.createNewButton);
 		tPP.createNewButton.click();
 			    
@@ -649,19 +640,15 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 		By textValue1 = By.xpath(String.format(str, tPP.IsHiddenText));
 	    flag = FunctionLibrary.elementExists(textValue1);
 	    System.out.println("No such Element Exception"+flag);
+
 		assertEquals(flag, false);
+
 		logger.log(LogStatus.PASS, "Is Hidden Alert seach text with YES successfully verified");
 		
-		tPP.textBoxSearch.clear();
-		tPP.textBoxSearch.sendKeys("HideTest");
-		Thread.sleep(4000);
-		FunctionLibrary.waitForElement(tPP.deleteButton);
-		tPP.deleteButton.click();	
-		tPP.deleteAlert.click();
-		
-		Thread.sleep(3000);
 		FunctionLibrary.waitForElement(tPP.createNewButton);
+		
 		tPP.createNewButton.click();
+	    
 		Thread.sleep(5000);
 		
 	}
@@ -698,7 +685,7 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 		Thread.sleep(3000);
 		
 		FunctionLibrary.click(tPP.updateBtn);
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		
 	}
 	@Test (priority = 35) 
@@ -777,7 +764,7 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 		tPP.deleteAlert.click();
 	
 		logger.log(LogStatus.PASS, "Is Invalid text with NO: successfully verified");
-		Thread.sleep(3000);
+		
 		FunctionLibrary.waitForElement(tPP.createNewButton);
 		tPP.createNewButton.click();
 			    
@@ -811,7 +798,7 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 		tPP.deleteAlert.click();
 	
 		logger.log(LogStatus.PASS, "NO Is Selected is saved: successfully verified");
-		Thread.sleep(3000);
+		
 		FunctionLibrary.waitForElement(tPP.createNewButton);
 		tPP.createNewButton.click();
 			    

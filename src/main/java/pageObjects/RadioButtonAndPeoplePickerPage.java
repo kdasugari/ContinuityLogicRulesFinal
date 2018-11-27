@@ -12,64 +12,55 @@ import org.openqa.selenium.support.PageFactory;
 
 import functionLib.FunctionLibrary;
 
-public class TextBoxAndPeoplePickerPage {
+public class RadioButtonAndPeoplePickerPage {
 	public WebDriver driver;
 	Boolean flag;
 	
 	@FindBy(xpath = "//span[text()='GR All Test - RB']") WebElement grAllTestRB;
     @FindBy(xpath = "//a[@role='tab'][contains(.,'Text Box and People Picker')]") WebElement TextBoxANDPeoplePicker;
-	public @FindBy(xpath = "//a[@id='btncreatenewitem163']") WebElement createNewButton;
-	@FindBy(xpath = "(//input[contains(@value,'NO')])[1]") WebElement noRadiobuttonLocator;
+	public @FindBy(xpath = "//a[@id='btncreatenewitem174']") WebElement createNewButton;
 	@FindBy(xpath = "(//button[@type='button'][contains(.,'Update')])[2]") WebElement updateEle;
-	//@FindBy(xpath = "(//span[@class='required'][contains(.,'*')])[14]") WebElement astricEle;
-	//String  astricxpath = "(//span[@class='required'][contains(.,'*')])[14]";
-	@FindBy(xpath = "(//input[contains(@value,'NEITHER')])[1]") WebElement neitherRadiobuttonLocator;
-	//	@FindBy(xpath = "//label[text()='Radio Button 1']//..//input[@value='YES']") WebElement yesRadiobuttonLocator;
 	@FindBy(xpath = "//a[text()='Text Box and People Picker']") WebElement textBoxPicker;
-	//@FindBy(xpath = "//a[@role='tab'][contains(.,'Text Box and People Picker')]")
-	//@FindBy(xpath = "//a[@role='tab'][contains(.,'GR All Test - RB')]")
-	//span[@class='aciTreeText'][contains(.,'GR All Test - RB')]
-	//@FindBy(xpath = "//span[@class='aciTreeText'][contains(.,'GR All Test - RB')]")
-	@FindBy(xpath = "//*[@id='formentrycontainer163_ENTITY_0']//following-sibling::button[@class='btn btn-primary updateButton']") WebElement updateButton;
-	//@FindBy(xpath = "//label[text()='Radio Button 1']//..//input[@value='YES']") WebElement yesRadiobuttonLocator;
-	@FindBy(xpath = "(//label[text()='Radio Button 1']//..//input[@value='YES']//..//..)[1]") WebElement yesRadiobuttonLocator;
 	@FindBy(xpath = "//div[@class='jarviswidget scroller-anchor']//..//h2[@title=' Radio Button - Text Box']") WebElement radioButtonPage;
-	public @FindBy(xpath = "//input[@id='Textbox11744']") WebElement textBoxIsRequired;
-	public @FindBy(xpath = "//input[@id='Textbox21747']") WebElement textBoxIsOptional;
-	public @FindBy(xpath = "//input[@id='Textbox31750']") WebElement textBoxIsVisible;
-	public @FindBy(xpath = "//input[@id='Textbox41753']") WebElement textBoxIsHidden;
+	public @FindBy(xpath = "//input[@data-lookupfieldid='2432']") WebElement textBoxIsRequired;
+	public @FindBy(xpath = "//input[@data-lookupfieldid='2433']") WebElement textBoxIsOptional;
+	public @FindBy(xpath = "//input[@data-lookupfieldid='2434']") WebElement textBoxIsVisible;
+	public @FindBy(xpath = "//input[@data-lookupfieldid='2435']") WebElement textBoxIsHidden;
 	//public @FindBy(xpath = "//input[@id='Textbox51756' and @disabled='disabled']") WebElement textBoxIsReadonly_disabled;
-	public @FindBy(xpath = "//input[@id='Textbox51756']") WebElement textBoxIsReadonly_enabled;
-	public @FindBy(xpath = "//input[@id='Textbox71765']") WebElement textBoxIsInvalid;
-	public @FindBy(xpath = "//input[@id='Textbox81768']") WebElement textBoxIsSetTo;
+	public @FindBy(xpath = "//input[@data-lookupfieldid='2436']") WebElement textBoxIsReadonly_enabled;
+	public @FindBy(xpath = "//input[@data-lookupfieldid='2437']") WebElement textBoxIsInvalid;
+	public @FindBy(xpath = "//input[@data-lookupfieldid='2438']") WebElement textBoxIsSetTo;
+	public @FindBy(xpath = "//span[@id='ui-id-33']") WebElement PeoplePicker1Title;
+	public @FindBy(xpath = "//input[@placeholder='Search User Id']") WebElement PeoplePickerSearch;
+	public @FindBy(xpath = "//table[@id='lookupfieldformSelectorGrid7800']/tbody/tr") WebElement PeoplePickerSelect;
+	public @FindBy(xpath = "//button[contains(text(),'OK')]") WebElement OKButton;
+	public @FindBy(xpath = "//button[contains(text(),'Cancel')]") WebElement CancelButton;
 	public @FindBy(xpath = "//button[@id='menuBuilderDelete']") WebElement deleteAlert;
 	public @FindBy(xpath = "//div[@id='hiddenDataLossAlerterRadioButton41752']") WebElement hideAlert;
 	public @FindBy(xpath = "//div[@id='hiddenInvalidAlerterRadioButton71764']") WebElement textInvalidError;
 	public @FindBy(xpath = "//span[contains(text(), 'Text box 1')]/../../../../tbody//td/div[contains(text(), '%s')]") WebElement isRequiredTextSearchResult;
 	public @FindBy(xpath = "//h2[contains(text(),'Text Box')]/..//button[@class='btn btn-primary updateButton']") WebElement updateBtn;
    	public @FindBy(xpath = "//h2[contains(text(), 'Radio Button - Text Box')]") WebElement radioButtoncheckboxPageTitle;
-   	public @FindBy(xpath = "//label[(text()='Text box 1')]//../span[@style='display: inline;']") WebElement astrixVisibleIR;
-   	public @FindBy(xpath = "//label[(text()='Text box 2')]//../span[@style='display: inline;']") WebElement astrixVisibleIO;
+   	public @FindBy(xpath = "//label[(text()='People Picker 1')]//../span") WebElement astrixVisibleIR;
+   	public @FindBy(xpath = "//label[(text()='People Picker 2')]//../span") WebElement astrixVisibleIO;
    	public @FindBy(xpath = "//div[@id='formadminGridDataTable1632582_filter']//input[@class='form-control input-sm']") WebElement textBoxSearch;
    	public @FindBy(xpath = "//table[@id='formadminGridDataTable1632582']/tbody/tr/td[2]/nav/nobr/button[2]") WebElement deleteButton;
    	public @FindBy(xpath = "//table[@id='formadminGridDataTable1632582']/tbody/tr/td[2]/nav/nobr/span/a") WebElement editButton;
    	public @FindBy(xpath = "//div[@class='textoFull']/p") WebElement invalidAlert;
    	public @FindBy(xpath = "//a[@title='Logout']") WebElement logoutButton;
-   	public @FindBy(xpath = "//button[@id='bot2-Msg1']") WebElement ConfirmLogout;
- 
    	public String Actual_text = "Textbox81768";
 	//public String updateBtn 		= "$(\"button[class='btn btn-primary updateButton']\")[1].click()";
    	public String backBtn   		= "document.getElementsByClassName('btn btn-default')[16].click()";
-	public String radioBtnIR 		= "RadioButton11743";
-	public String radioBtnIO		= "RadioButton21746";
-	public String radioBtnIV		= "RadioButton31749";
-	public String radioBtnIH		= "RadioButton41752";
-	public String radioBtnIRO		= "RadioButton51755";
-	public String radioBtnIN		= "RadioButton71764";
-	public String radioBtnIST		= "RadioButton81767";
-	public String errMsgNameIRText1	= "Textbox11744-error";
-	public String errMsgNameText2 	= "fllErrorSummaryContainer1630";
-	public String errMsgNameIOText1	= "Textbox21747-error";
+	public String radioBtnIR 		= "RadioButton12090";
+	public String radioBtnIO		= "RadioButton22093";
+	public String radioBtnIV		= "RadioButton32095";
+	public String radioBtnIH		= "RadioButton42097";
+	public String radioBtnIRO		= "RadioButton52099";
+	public String radioBtnIN		= "RadioButton62101";
+	public String radioBtnIST		= "RadioButton72105";
+	public String errMsgNameIRText1	= "PeoplePicker12432-error";
+	public String errMsgNameText2 	= "fllErrorSummaryContainer17424";
+	public String errMsgNameIOText1	= "PeoplePicker22433-error";
 	public String textBoxIsReadonly_disabled = "//input[@id='Textbox51756' and @disabled='disabled']";
 	
 	
@@ -91,7 +82,7 @@ public class TextBoxAndPeoplePickerPage {
 //$x("//label[text() = 'Text box 1']//..//span[@style='display: none;']").length - 0/1
 //label[text() = 'Text box 1']//..//span -- Get * for required 
 
-public TextBoxAndPeoplePickerPage(WebDriver driver){
+public RadioButtonAndPeoplePickerPage(WebDriver driver){
     this.driver = driver;
     PageFactory.initElements(driver, this);
 }
