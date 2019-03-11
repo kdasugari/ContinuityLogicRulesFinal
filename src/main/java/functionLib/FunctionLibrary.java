@@ -69,7 +69,7 @@ public class FunctionLibrary {
     
     
     public static void waitForElement(WebElement obj){
- 		WebDriverWait wait = new WebDriverWait(driver, 200);
+ 		WebDriverWait wait = new WebDriverWait(driver, 1000);
  		wait.until(ExpectedConditions.visibilityOf(obj));
     }
     

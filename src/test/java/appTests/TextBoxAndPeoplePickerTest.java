@@ -50,15 +50,9 @@ public void login()throws Exception
 	//Navigate to TextBoxAndPeoplePickerPage
 	js = (JavascriptExecutor) driver;
 	lg.login(un, pw);
-<<<<<<< HEAD
-	//tPP = new TextBoxAndPeoplePickerPage(driver);
-	//tPP.navigateToTextBoxAndPeoplePickerPage();
-	
-=======
+
 	tPP = new TextBoxAndPeoplePickerPage(driver);
 	tPP.navigateToTextBoxAndPeoplePickerPage();
-
->>>>>>> 61e4c33bb97235f84394b135dab063954978fd49
 }
 
 @BeforeTest
@@ -576,11 +570,12 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 		js.executeScript(tempStr);
 		tPP.textBoxIsOptional.clear();
 		FunctionLibrary.enterText(tPP.textBoxIsOptional, "IR_NO");
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		FunctionLibrary.click(tPP.updateBtn);
 		String expectedTitle = "Radio Button - Text Box";
 		String actualTitle = tPP.radioButtoncheckboxPageTitle.getText();
-		Assert.assertEquals(actualTitle, expectedTitle);	    
+		Assert.assertEquals(actualTitle, expectedTitle);	
+		FunctionLibrary.waitForElement(tPP.textBoxSearch);
 		tPP.textBoxSearch.sendKeys("IR_NO");
 		Thread.sleep(3000);
 		FunctionLibrary.waitForElement(tPP.deleteButton);
@@ -603,6 +598,7 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 		js.executeScript(tempStr);
 		FunctionLibrary.enterText(tPP.textBoxIsOptional, "Automation_Is Required");
 		FunctionLibrary.click(tPP.updateBtn);
+		FunctionLibrary.waitForElement(tPP.textBoxSearch);
 		String expectedTitle = "Radio Button - Text Box";
 		String actualTitle = tPP.radioButtoncheckboxPageTitle.getText();
 		Assert.assertEquals(actualTitle, expectedTitle);	    
@@ -610,7 +606,7 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 		logger.log(LogStatus.PASS, "Is Optional Update Button with YES successfully verified");
 				
 		tPP.textBoxSearch.sendKeys("Automation_Is Required");
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		FunctionLibrary.waitForElement(tPP.deleteButton);
 		tPP.deleteButton.click();
 				
@@ -640,7 +636,7 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 		FunctionLibrary.waitForElement(tPP.updateBtn);
 		FunctionLibrary.click(tPP.updateBtn);
 		Thread.sleep(5000);
-
+		FunctionLibrary.waitForElement(tPP.textBoxSearch);
 		//flag = tPP.validateSearchTextBoxResult(tPP.IsHiddenTextSearchResult, tPP.IsHiddenText);	
 		tPP.textBoxSearch.clear();
 		tPP.textBoxSearch.sendKeys(tPP.IsHiddenText);
