@@ -15,9 +15,9 @@ import functionLib.FunctionLibrary;
 public class TextBoxAndPeoplePickerPage {
 	public WebDriver driver;
 	Boolean flag;
-	
+	@FindBy(xpath = "//span[@class='aciTreeText'][contains(.,'Main Folder')]") WebElement mainFolder;
 	@FindBy(xpath = "//span[text()='GR All Test - RB']") WebElement grAllTestRB;
-    @FindBy(xpath = "//a[@role='tab'][contains(.,'Text Box and People Picker')]") WebElement TextBoxANDPeoplePicker;
+    @FindBy(xpath = "//a[@id='formEntryTab834']") WebElement TextBoxANDPeoplePicker;
 	public @FindBy(xpath = "//a[@id='btncreatenewitem163']") WebElement createNewButton;
 	@FindBy(xpath = "(//input[contains(@value,'NO')])[1]") WebElement noRadiobuttonLocator;
 	@FindBy(xpath = "(//button[@type='button'][contains(.,'Update')])[2]") WebElement updateEle;
@@ -98,7 +98,8 @@ public TextBoxAndPeoplePickerPage(WebDriver driver){
 
 
 public void navigateToTextBoxAndPeoplePickerPage() throws InterruptedException{
-	Thread.sleep(15000);
+	mainFolder.click();
+	Thread.sleep(5000);
     ((JavascriptExecutor) driver).executeScript(
             "arguments[0].scrollIntoView();", grAllTestRB);
     FunctionLibrary.waitForElement(grAllTestRB);

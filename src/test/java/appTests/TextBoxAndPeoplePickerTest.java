@@ -66,7 +66,7 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 }
 
 //Validate '*' visible upon selection radio button - 'YES'
-	@Test (priority = 1)	
+/*	@Test (priority = 1)	
 	public void validateAstrixVisibleIsRequiredYES()throws Exception
 	{		
 		//Select Is Required Radio Button - YES
@@ -586,7 +586,7 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 	    tPP.createNewButton.click();
 	    logger.log(LogStatus.PASS, "IsRequired Update Button with NO successfully verified");
 	    
-	}
+	}*/
 	
 	@Test (priority = 32) 
 	public void validateIsOptionalUpdate()throws Exception
@@ -596,25 +596,23 @@ extent.loadConfig(new File(".\\extent-config.xml"));
 		Thread.sleep(5000);
 		tempStr = tPP.selectRadioButton("YES" , tPP.radioBtnIO);
 		js.executeScript(tempStr);
+		tPP.textBoxIsOptional.clear();
 		FunctionLibrary.enterText(tPP.textBoxIsOptional, "Automation_Is Required");
+		Thread.sleep(3000);
 		FunctionLibrary.click(tPP.updateBtn);
-		FunctionLibrary.waitForElement(tPP.textBoxSearch);
 		String expectedTitle = "Radio Button - Text Box";
 		String actualTitle = tPP.radioButtoncheckboxPageTitle.getText();
-		Assert.assertEquals(actualTitle, expectedTitle);	    
-				
-		logger.log(LogStatus.PASS, "Is Optional Update Button with YES successfully verified");
-				
+		Assert.assertEquals(actualTitle, expectedTitle);
+		FunctionLibrary.waitForElement(tPP.textBoxSearch);  				
 		tPP.textBoxSearch.sendKeys("Automation_Is Required");
 		Thread.sleep(5000);
 		FunctionLibrary.waitForElement(tPP.deleteButton);
-		tPP.deleteButton.click();
-				
+		tPP.deleteButton.click();	
 		tPP.deleteAlert.click();
 	    Thread.sleep(3000);
 		FunctionLibrary.waitForElement(tPP.createNewButton);
 		tPP.createNewButton.click();
-			    
+		logger.log(LogStatus.PASS, "Is Optional Update Button with YES successfully verified");  
 		Thread.sleep(5000);
 	}
 	

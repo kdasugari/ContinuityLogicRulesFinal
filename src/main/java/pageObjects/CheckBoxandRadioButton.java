@@ -13,6 +13,7 @@ import functionLib.FunctionLibrary;
 
 public class CheckBoxandRadioButton {
 	public WebDriver driver;
+	@FindBy(xpath = "//span[@class='aciTreeText'][contains(.,'Main Folder')]") WebElement mainFolder;
 	@FindBy(xpath = "//span[text()='GR All Test - RB']")	WebElement grAllTestRB;	
 	@FindBy(xpath = "//a[@id='btncreatenewitem169']") 	WebElement createNewButton;	
 	@FindBy(xpath = "//a[@role='tab'][contains(.,'Check Box ad Dropdown')]") WebElement CheckBoxAndDropdown;
@@ -46,6 +47,8 @@ public class CheckBoxandRadioButton {
 
 	
 	public void navigateToCheckBoxAndDropdownPage() throws InterruptedException{
+		mainFolder.click();
+		Thread.sleep(5000);
 	    ((JavascriptExecutor) driver).executeScript(
 	            "arguments[0].scrollIntoView();", grAllTestRB);
 	    FunctionLibrary.waitForElement(grAllTestRB);
