@@ -18,7 +18,7 @@ public class TextBoxAndPeoplePickerPage {
 	@FindBy(xpath = "//span[@class='aciTreeText'][contains(.,'Main Folder')]") WebElement mainFolder;
 	@FindBy(xpath = "//span[text()='GR All Test - RB']") WebElement grAllTestRB;
     @FindBy(xpath = "//a[@id='formEntryTab834']") WebElement TextBoxANDPeoplePicker;
-	public @FindBy(xpath = "//a[@id='btncreatenewitem163']") WebElement createNewButton;
+	public @FindBy(xpath = "//a[@id='btncreatenewitem163258']") WebElement createNewButton;
 	@FindBy(xpath = "(//input[contains(@value,'NO')])[1]") WebElement noRadiobuttonLocator;
 	@FindBy(xpath = "(//button[@type='button'][contains(.,'Update')])[2]") WebElement updateEle;
 	//@FindBy(xpath = "(//span[@class='required'][contains(.,'*')])[14]") WebElement astricEle;
@@ -30,7 +30,8 @@ public class TextBoxAndPeoplePickerPage {
 	//@FindBy(xpath = "//a[@role='tab'][contains(.,'GR All Test - RB')]")
 	//span[@class='aciTreeText'][contains(.,'GR All Test - RB')]
 	//@FindBy(xpath = "//span[@class='aciTreeText'][contains(.,'GR All Test - RB')]")
-	@FindBy(xpath = "//*[@id='formentrycontainer163_ENTITY_0']//following-sibling::button[@class='btn btn-primary updateButton']") WebElement updateButton;
+	//@FindBy(xpath = "//*[@id='formentrycontainer163_ENTITY_0']//following-sibling::button[@class='btn btn-primary updateButton']") WebElement updateButton;
+	@FindBy(xpath = "//*[@id='formentrycontainer163_ENTITY_0']/div[1]/section/div[3]/article/div/header/div[1]/button[4]") WebElement updateButton;
 	//@FindBy(xpath = "//label[text()='Radio Button 1']//..//input[@value='YES']") WebElement yesRadiobuttonLocator;
 	@FindBy(xpath = "(//label[text()='Radio Button 1']//..//input[@value='YES']//..//..)[1]") WebElement yesRadiobuttonLocator;
 	@FindBy(xpath = "//div[@class='jarviswidget scroller-anchor']//..//h2[@title=' Radio Button - Text Box']") WebElement radioButtonPage;
@@ -46,8 +47,8 @@ public class TextBoxAndPeoplePickerPage {
 	public @FindBy(xpath = "//div[@id='hiddenDataLossAlerterRadioButton41752']") WebElement hideAlert;
 	public @FindBy(xpath = "//div[@id='hiddenInvalidAlerterRadioButton71764']") WebElement textInvalidError;
 	public @FindBy(xpath = "//span[contains(text(), 'Text box 1')]/../../../../tbody//td/div[contains(text(), '%s')]") WebElement isRequiredTextSearchResult;
-	public @FindBy(xpath = "//h2[contains(text(),'Text Box')]/..//button[@class='btn btn-primary updateButton']") WebElement updateBtn;
-   	public @FindBy(xpath = "//h2[contains(text(), 'Radio Button - Text Box')]") WebElement radioButtoncheckboxPageTitle;
+	public @FindBy(xpath = "//h1[contains(text(),'Text Box')]/..//button[@class='btn btn-primary updateButton']") WebElement updateBtn;
+   	public @FindBy(xpath = "//h1[contains(text(), 'Radio Button - Text Box')]") WebElement radioButtoncheckboxPageTitle;
    	public @FindBy(xpath = "//label[(text()='Text box 1')]//../span[@style='display: inline;']") WebElement astrixVisibleIR;
    	public @FindBy(xpath = "//label[(text()='Text box 2')]//../span[@style='display: inline;']") WebElement astrixVisibleIO;
    	public @FindBy(xpath = "//div[@id='formadminGridDataTable1632582_filter']//input[@class='form-control input-sm']") WebElement textBoxSearch;
